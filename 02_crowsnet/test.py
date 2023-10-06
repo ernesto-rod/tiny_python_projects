@@ -12,7 +12,7 @@ consonant_words = [
     'zebrafish'
 ]
 vowel_words = ['aviso', 'eel', 'iceberg', 'octopus', 'upbound']
-template = 'Ahoy, Captain, {} {} off the lardoard bow!'
+template = 'Ahoy, Captain, {} {} off the lardboard bow!'
 
 
 # --------------------------------------------------
