@@ -16,7 +16,7 @@ def get_args():
         description='Picnic game',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('str',
+    parser.add_argument('item',
                         metavar='str',
                         nargs='+',
                         type=str,
@@ -35,17 +35,21 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
+    items = args.item
+    num = len(items)
 
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
-    print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
+    if args.sorted:
+        items.sort()
+
+    msg = str()
+    if num == 1:
+        msg = items[0]
+    elif num == 2:
+        msg = ' and '.join(items)
+    elif num > 2:
+        msg = f"{', '.join(items[:-1])}, and {items[-1]}"
+
+    print(f'You are bringing {msg}.')
 
 
 # --------------------------------------------------

@@ -55,7 +55,7 @@ def test_two_sorted():
     """two items sorted output"""
 
     out = getoutput(f'{prg} -s soda candy')
-    assert out.strip() == 'You are bringing candy and soda'
+    assert out.strip() == 'You are bringing candy and soda.'
 
 
 # --------------------------------------------------
@@ -64,5 +64,5 @@ def test_more_than_two_sorted():
 
     arg = 'bananas apples dates cherries'
     out = getoutput(f'{prg} {arg} --sorted')
-    expected = 'You are bringing apples, bananas, cherries, and dates'
+    expected = 'You are bringing apples, bananas, cherries, and dates.'
     assert out.strip() == expected
