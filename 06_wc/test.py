@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python
 """tests for wc.py"""
 
 import os
@@ -56,7 +56,7 @@ def test_empty():
 
     rv, out = getstatusoutput(f'{prg} {empty}')
     assert rv == 0
-    assert out.rstrip() == '        0       0       0 ./inputs/empty.txt'
+    assert out.rstrip() == '       0       0       0 ./inputs/empty.txt'
 
 
 # --------------------------------------------------
@@ -65,7 +65,7 @@ def test_one():
 
     rv, out = getstatusoutput(f'{prg} {one_line}')
     assert rv == 0
-    assert out.rstrip() == '        1       1       2 ./inputs/one.txt'
+    assert out.rstrip() == '       1       1       2 ./inputs/one.txt'
 
 
 # --------------------------------------------------
@@ -74,18 +74,17 @@ def test_two():
 
     rv, out = getstatusoutput(f'{prg} {two_lines}')
     assert rv == 0
-    assert out.rstrip() == '        2       2       4 ./inputs/two.txt'
+    assert out.rstrip() == '       2       2       4 ./inputs/two.txt'
 
 
 # --------------------------------------------------
 def test_more():
     """Test on more than one file"""
 
-    rv, out = getstatusoutput(f'{prg} {fox}')
-    expected = ('        1       9      45 ../inputs/fox.txt\n'
-                '       17     118     661 ../inputs/sonnet-29.txt\n'
-                '       18     127     706 total'
-    )
+    rv, out = getstatusoutput(f'{prg} {fox} {sonnet}')
+    expected = ('       1       9      45 ../inputs/fox.txt\n'
+                '      17     118     661 ../inputs/sonnet-29.txt\n'
+                '      18     127     706 total')
     assert rv == 0
     assert out.rstrip() == expected
 
@@ -96,5 +95,5 @@ def test_stdin():
 
     rv, out = getstatusoutput(f'{prg} < {fox}')
     assert rv == 0
-    assert out.rstrip() == '        1       9      45 <stdin>'
+    assert out.rstrip() == '       1       9      45 <stdin>'
 

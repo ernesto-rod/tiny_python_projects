@@ -3,7 +3,7 @@
 set -eu -o pipefail
 
 PRG="wc.py"
-for FILE in solution*.py; DO
+for FILE in solution*.py; do
     echo "==> ${FILE} <=="
     cp "${FILE}" "${PRG}"
     make test
