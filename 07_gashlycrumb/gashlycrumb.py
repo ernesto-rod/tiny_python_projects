@@ -7,7 +7,6 @@ Purpose: gashlycrumb.py
 
 import argparse
 
-from pprint import pprint
 
 # --------------------------------------------------
 def get_args():
@@ -20,7 +19,8 @@ def get_args():
     parser.add_argument('letter',
                         metavar='letter',
                         nargs='+',
-                        help='Letter(s)')
+                        help='Letter(s)',
+                        type=str)
 
     parser.add_argument('-f',
                         '--file',
@@ -46,7 +46,6 @@ def main():
             args.file
     }
     
-    # pprint(entries)
     for letter in args.letter:
         if letter.upper() in entries:
             print(entries[letter.upper()])
